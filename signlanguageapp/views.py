@@ -41,8 +41,8 @@ def register(request):
             password=password
         )
 
-        messages.success(request, "Register successfully.")
-        return redirect("login")
+        return render(request, "success.html")
+        #return redirect("login")
 
     return render(request, "register.html")
 
@@ -61,7 +61,7 @@ def login(request):
 
                 request.session["user"] = user.id
 
-                messages.success(request, "Login Successfully")
+                messages.success(request, "Login Successfully🎉.")
                 return redirect("home")
 
             else:
