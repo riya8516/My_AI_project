@@ -1,0 +1,316 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection - Sign Language AI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    color:white;
+}
+
+/* Navbar */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(15px);
+}
+
+nav h2{
+    color:#38bdf8;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav ul li a:hover,
+.active{
+    color:#ffd166;
+}
+
+/* Hero */
+
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:80px 8%;
+    gap:50px;
+}
+
+.content{
+    flex:1;
+}
+
+.content h1{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.content p{
+    font-size:18px;
+    line-height:1.8;
+    color:#f1f5f9;
+    margin-bottom:30px;
+}
+
+.image{
+    flex:1;
+    text-align:center;
+}
+
+.image img{
+    width:100%;
+    max-width:500px;
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,.3);
+}
+
+/* Button */
+
+.btn{
+    display:inline-block;
+    padding:15px 35px;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#1d4ed8;
+}
+
+/* Sections */
+
+.steps,
+.advantages{
+    padding:70px 8%;
+}
+
+.steps h2,
+.advantages h2{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:40px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    color:#ffd166;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#e2e8f0;
+    line-height:1.7;
+}
+
+/* Footer */
+
+footer{
+    background:#0f172a;
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+}
+
+footer h3{
+    margin-bottom:10px;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+.content h1{
+    font-size:40px;
+}
+
+.image img{
+    width:90%;
+}
+
+nav{
+    flex-direction:column;
+    gap:20px;
+}
+
+nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<nav>
+
+<h2>🤟 Sign Language AI</h2>
+
+<ul>
+    <li><a href="{% url 'Home' %}">Home</a></li>
+    <li><a href="{% url 'about' %}">About</a></li>
+    <li><a href="{% url 'features' %}">Features</a></li>
+    <li><a href="{% url 'detection' %}" class="active">Detection</a></li>
+    <li><a href="{% url 'contact' %}">Contact</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="content">
+
+<h1>Real-Time Sign Language Detection</h1>
+
+<p>
+Our AI-powered system captures hand gestures using your webcam,
+processes them with OpenCV and MediaPipe, and predicts the sign
+using a trained TensorFlow model in real time.
+</p>
+
+<a href="/detect/" class="btn">
+Start Live Detection
+</a>
+
+</div>
+
+<div class="image">
+
+<img src="{% static 'images/sign3.png' %}" alt="Detection">
+
+</div>
+
+</section>
+
+<section class="steps">
+
+<h2>Detection Process</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>📷 Step 1</h3>
+<p>Allow camera access to start live video.</p>
+</div>
+
+<div class="card">
+<h3>✋ Step 2</h3>
+<p>MediaPipe detects hand landmarks.</p>
+</div>
+
+<div class="card">
+<h3>🧠 Step 3</h3>
+<p>TensorFlow predicts the sign language gesture.</p>
+</div>
+
+<div class="card">
+<h3>📝 Step 4</h3>
+<p>Recognized text is displayed instantly.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="advantages">
+
+<h2>Why Use Our Detection?</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>⚡ Fast Recognition</h3>
+<p>Real-time AI prediction with minimal delay.</p>
+</div>
+
+<div class="card">
+<h3>🎯 High Accuracy</h3>
+<p>Deep learning model provides accurate predictions.</p>
+</div>
+
+<div class="card">
+<h3>💻 Easy to Use</h3>
+<p>Simply click Start Detection and show your hand.</p>
+</div>
+
+<div class="card">
+<h3>🤖 AI Powered</h3>
+<p>Built with Django, OpenCV, TensorFlow and MediaPipe.</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>Sign Language AI</h3>
+
+<p>
+Built with Django • OpenCV • TensorFlow • MediaPipe
+</p>
+
+<p>
+© 2026 All Rights Reserved
+</p>
+
+</footer>
+
+</body>
+</html>

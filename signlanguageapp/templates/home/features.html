@@ -1,0 +1,253 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Sign Language AI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    color:white;
+}
+
+/* Navbar */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(15px);
+}
+
+nav h2{
+    color:#38bdf8;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav ul li a:hover,
+.active{
+    color:#ffd166;
+}
+
+/* Features Section */
+
+.features{
+    padding:80px 8%;
+    text-align:center;
+}
+
+.features h1{
+    font-size:55px;
+    margin-bottom:50px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h2{
+    margin-bottom:15px;
+    color:#ffd166;
+}
+
+.card p{
+    color:#e2e8f0;
+    line-height:1.7;
+}
+
+/* Footer */
+
+footer{
+    background:#0f172a;
+    text-align:center;
+    padding:30px;
+    margin-top:60px;
+}
+
+footer h3{
+    margin-bottom:10px;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+nav{
+    flex-direction:column;
+    gap:20px;
+}
+
+nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.features h1{
+    font-size:40px;
+}
+
+.cards{
+    grid-template-columns:1fr;
+}
+
+}
+.subtitle{
+    text-align:center;
+    width:80%;
+    margin:0 auto 50px;
+    font-size:18px;
+    color:#f1f5f9;
+    line-height:1.8;
+}
+
+.card ul{
+    margin-top:15px;
+    padding-left:20px;
+    text-align:left;
+}
+
+.card li{
+    margin-bottom:10px;
+    color:#e2e8f0;
+    line-height:1.6;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>🤟 Sign Language AI</h2>
+
+    <ul>
+        <li><a href="{% url 'Home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'features' %}" class="active">Features</a></li>
+        <li><a href="{% url 'detection' %}">Detection</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="features">
+
+    <h1>Our Features</h1>
+    <p class="subtitle">
+        Our Sign Language AI system uses Artificial Intelligence and Computer Vision
+        to recognize hand gestures accurately and convert them into meaningful text.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>🎥 Live Camera Detection</h2>
+            <ul>
+                <li>Real-time webcam support.</li>
+                <li>Instant hand gesture recognition.</li>
+                <li>Smooth and responsive video processing.</li>
+                <li>No need to upload images manually.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>🧠 AI Gesture Prediction</h2>
+            <ul>
+                <li>Powered by TensorFlow Deep Learning.</li>
+                <li>Recognizes alphabet and hand gestures.</li>
+                <li>High prediction accuracy.</li>
+                <li>Fast and intelligent AI model.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>⚡ Real-Time Performance</h2>
+            <ul>
+                <li>Low-latency processing.</li>
+                <li>Optimized for fast recognition.</li>
+                <li>Quick display of prediction results.</li>
+                <li>Smooth user experience.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>✋ Hand Tracking</h2>
+            <ul>
+                <li>MediaPipe hand landmark detection.</li>
+                <li>Tracks fingers accurately.</li>
+                <li>Works with single-hand gestures.</li>
+                <li>Stable tracking in real time.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>🔊 Text to Speech</h2>
+            <ul>
+                <li>Converts detected text into speech.</li>
+                <li>Clear voice output.</li>
+                <li>Improves communication.</li>
+                <li>Supports accessibility.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>💻 Modern Technology</h2>
+            <ul>
+                <li>Python & Django backend.</li>
+                <li>OpenCV for image processing.</li>
+                <li>TensorFlow AI model.</li>
+                <li>MediaPipe for hand detection.</li>
+            </ul>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <h3>Sign Language AI</h3>
+    <p>Built with Django • TensorFlow • OpenCV • MediaPipe</p>
+    <p>© 2026 All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

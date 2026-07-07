@@ -1,16 +1,10 @@
 from django.shortcuts import render
-from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib import messages
-
-# Create your views here.
-
-    
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from signlanguageapp.models import Register
-
-
+from django.contrib.auth import authenticate, login
+# Create your views here.
 
 def register(request):
 
@@ -41,10 +35,10 @@ def register(request):
             password=password
         )
 
-        return render(request, "success.html")
+        return render(request, "account/success.html")
         #return redirect("login")
 
-    return render(request, "register.html")
+    return render(request, "account/register.html")
 
 
 def login(request):
@@ -62,7 +56,7 @@ def login(request):
                 request.session["user"] = user.id
 
                 messages.success(request, "Login Successfully🎉.")
-                return redirect("home")
+                return redirect("Home")
 
             else:
                 messages.error(request, "Wrong Password")
@@ -71,19 +65,32 @@ def login(request):
             messages.error(request, "Please Register First")
             return redirect("register")
 
-    return render(request, "login.html")
+    return render(request, "account/login.html")
 
 
-def home(request):
+def Home(request):
 
     if "user" not in request.session:
         return redirect("login")
 
     user = Register.objects.get(id=request.session["user"])
 
-    return render(request, "home.html", {"user": user})
+    return render(request, "home/Home.html", {"user": user})
 
 
 def logout(request):
     request.session.flush()
     return redirect("login")
+
+
+def about(request):
+    return render(request, "home/about.html")
+
+def features(request):
+    return render(request, "home/features.html")
+
+def detection(request):
+    return render(request, "home/detection.html")
+
+def contact(request):
+    return render(request, "home/contact.html")

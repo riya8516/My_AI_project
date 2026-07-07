@@ -26,10 +26,18 @@ urlpatterns = [
 
     path("login/",views.login,name="login"),
 
-    path("home/",views.home,name="home"),
+    path("Home/",views.Home,name="Home"),
 
     path("logout/",views.logout,name="logout"),
 
     path("login/",views.login,name="logoin"),
+
+    path("about/",views.about,name="about"),
+
+    path("features/",views.features,name="features"),
+
+    path("detection/",views.detection,name="detection"),
+
+    path("contact/",views.contact,name="contact"),
 
 ]
